@@ -4,7 +4,7 @@ Panasonic Smart CN 是 HA Core 自定义集成。开发和测试围绕账号配�
 
 ## 新增型号
 
-1. 记录销售型号、云类别、`devSubTypeId`、APK 版本与资源路径。存在同名或同系列变体时，核对实际端点和能力。型号来源不足时保留「仅状态」。
+1. 适配范围以中国区 App 可添加的设备为限。记录 App 添加目录的来源，或本项目在 App 中添加、绑定该型号的证据。目录只提供候选型号。社区代码可作为通信逻辑参考并保留署名，社区型号映射、测试结果不能充当本项目的证据。记录销售型号、云类别、`devSubTypeId`、APK 版本与资源路径。存在同名或同系列变体时，核对实际端点和能力。型号来源不足时保留「仅状态」。
 2. 核对状态与控制端点、请求封装、认证头、每个读写字段及其允许值、哨兵值和单位。优先使用可复核的 APK 资源、松下公开控制脚本或脱敏实机样本。显示名称和协议值分别记录。
 3. 在 `protocol/` 增加或扩展对应协议，在 `api/` 复用账号会话和请求处理。实体优先复用 HA 的 `fan`、`light`、`select`、`switch`、`sensor` 等平台。使用 `DeviceInfo` 注册设备，保持已存在的 `unique_id` 稳定。实体属性只读取协调器缓存，网络请求放在异步更新或服务调用中。参考 [Config Entries](https://contributors.home-assistant.io/core/integrations/config-entries/) 和 [数据获取](https://contributors.home-assistant.io/core/integrations/fetching-data/)。
 4. 录入设备匹配、初始状态、动作请求、错误与非法值的测试。测试应覆盖相邻型号的误匹配、缺失字段、断线或失败时的适当状态。重新认证归到当前账号的配置条目。

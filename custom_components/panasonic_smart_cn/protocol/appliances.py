@@ -154,14 +154,15 @@ def match_appliance(
     device: ParsedDeviceId, subtype: str | None, model: str | None
 ) -> str | None:
     """Require a matching category and a supported model or cloud subtype."""
+    subtype = (subtype or "").strip().upper()
+    model = (model or "").strip().upper()
+    subtype_profile = MODEL_ALIASES.get((device.category, subtype))
     if model:
-        matched = MODEL_ALIASES.get((device.category, model.strip().upper()))
-        if matched:
-            return matched
-        # Do not trust an alias contradicted by an explicit retail model.
-        if model.upper().startswith(("FV-", "F-", "CZ-")):
+        model_profile = MODEL_ALIASES.get((device.category, model))
+        if subtype and subtype_profile != model_profile:
             return None
-    return MODEL_ALIASES.get((device.category, (subtype or "").strip().upper()))
+        return model_profile
+    return subtype_profile
 
 
 def bath_mode(profile: str, raw: int | None) -> str | None:

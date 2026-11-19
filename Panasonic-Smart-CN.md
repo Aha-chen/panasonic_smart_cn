@@ -10,7 +10,7 @@
 
 ## 协议与显示
 
-按云端设备类别、子类型及已知销售型号匹配。已实现 DCERV、NewDCERV、MidERV、LD5C、LD6C、SmallERV、SmallERV02，以及 `Aircle-13-03` 兼容路径。原生风机实体提供开关、百分比风量和运行模式。支持模式切换的新风机同时在设备页提供独立的「运行模式」下拉框，中文风量档位在「风量」下拉框选择。空气质量和滤网实体按协议提供。
+按云端设备类别、子类型及已知销售型号匹配。已实现 DCERV、NewDCERV、MidERV、LD5C、LD6C、SmallERV、SmallERV02，以及 `Aircle-13-03` 兼容路径。这些协议名称用于识别已绑定设备上报的子类型。销售型号与子类型同时存在时，必须符合本项目的型号映射才开放控制。型号支持范围以[逐型号清单](docs/设备适配进度.md)为准。原生风机实体提供开关、百分比风量和运行模式。支持模式切换的新风机同时在设备页提供独立的「运行模式」下拉框，中文风量档位在「风量」下拉框选择。空气质量和滤网实体按协议提供。
 
 ### 控制结果
 
@@ -43,6 +43,6 @@ RB20VL1 的控制页只开放一组换气及干燥模式，本版本按该控制
 - [松下 PXP60C 控制脚本](https://app.psmartcloud.com/ca/cn/0810/PXP60C/js/common/api_utility.js) · [松下 VXR110C 档位脚本](https://app.psmartcloud.com/ca/cn/0810/VXR110C/js/common/common_contents.js)
 - [松下 ERV 控制脚本](https://app.psmartcloud.com/ca/cn/0800/ERV/js/common/api_utility.js) · [松下 LD5C-X 控制脚本](https://app.psmartcloud.com/ca/cn/0800/LD5C-X/js/common/api_utility.js) · [松下 CABINET 控制脚本](https://app.psmartcloud.com/ca/cn/0800/CABINET/js/common/api_utility.js)
 
-显示名称与协议值分别维护。例如 DCERV 的「热交换」使用 `48`，LD6C 的「热交换」使用 `1`。LD5C 的「外循环」使用实机协议值 `5`。APK 资源里的部分界面枚举与实际请求值域不同。开发时参照了 APK 4.101.0 的资源、松下 Web 控制资源和 MIT 授权的社区实现。来源许可随组件附带。
+显示名称与协议值分别维护。例如 DCERV 的「热交换」使用 `48`，LD6C 的「热交换」使用 `1`。APK 资源里的部分界面枚举与实际请求值域不同。开发时参照了 APK 4.101.0 的资源、松下 Web 控制资源和 MIT 授权的社区实现。来源许可随组件附带。
 
 本项目已确认的实机组合为 FV-35ZDP2C（LD6C）。其他适配型号标注为「未实机验证」。LD6C 当前开放整机开关、模式和风量控制。

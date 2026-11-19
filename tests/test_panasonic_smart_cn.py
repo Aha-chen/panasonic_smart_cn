@@ -481,7 +481,19 @@ class PanasonicIntegrationTest(unittest.IsolatedAsyncioTestCase):
 
     def test_model_matching_does_not_guess_an_unknown_variant(self):
         self.assertEqual(match_profile(MID, "SMALLERV-02", None), "SMALLERV02")
-        self.assertEqual(match_profile(MID, None, "FY-25ZDP1C"), "LD5C")
+        self.assertIsNone(match_profile(MID, None, "FY-25ZDP1C"))
+        for subtype, model in (
+            ("LD6C", "FV-50ZDP2C"),
+            ("LD6C", "FV-25ZDP2C"),
+            ("NEWDCERV", "FV-RZ09VD2"),
+            ("SMALLERV02", "FY-25ZM1C"),
+            ("MIDERV", "FV-RZ06VD1"),
+            ("DCERV-03", "FY-35ZJD2C"),
+            ("LD6C", "FY-70ZR1C"),
+        ):
+            with self.subTest(model=model):
+                self.assertIsNone(match_profile(MID, subtype, model))
+        self.assertEqual(match_profile(MID, "LD6C", "FV-35ZDP2C"), "LD6C")
         self.assertEqual(match_profile(MID, "DCERV-03", None), "DCERV")
         self.assertIsNone(match_profile(MID, "DCERV-99", None))
         self.assertIsNone(match_profile(MID, "LD5C-Y", "FY-25ZDP1C"))
@@ -494,6 +506,8 @@ class PanasonicIntegrationTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(match_profile(HUMID, None, "F-113C8VX"), PURIFIER_VXR)
         self.assertIsNone(match_profile(BATH, "Aircle-05-02", "FV-40BQ1C"))
         self.assertIsNone(match_profile(PURE, "RB20VL1", None))
+        self.assertIsNone(match_profile(BATH, "54BA1C", "FV-RB20VL1"))
+        self.assertIsNone(match_profile(PURE, "PXP60C", "unknown-model"))
 
     def test_ld6c_hardware_evidence_is_model_specific(self):
         for model in ("FV-25ZDP2C", "FV-50ZDP2C", None):

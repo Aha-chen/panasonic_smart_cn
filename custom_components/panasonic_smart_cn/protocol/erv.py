@@ -522,7 +522,6 @@ ERV_PROTOCOLS = {
         THREE_SPEEDS,
         modes=MID_MODES,
         mode_writes=MID_MODE_WRITES,
-        models=("FV-RZ09VD2",),
         live_status=True,
         sensor_keys=(
             "oaPMC",
@@ -549,7 +548,7 @@ ERV_PROTOCOLS = {
         LD6C_AIR_VOLUME_MAP,
         modes=LD6C_RUN_MODE_GET_MAP,
         mode_writes=LD6C_RUN_MODE_SET_MAP,
-        models=("FV-25ZDP2C", "FV-35ZDP2C", "FV-50ZDP2C"),
+        models=("FV-35ZDP2C",),
         live_status=True,
         sensor_keys=(
             "oaPMC",
@@ -569,7 +568,6 @@ ERV_PROTOCOLS = {
         THREE_SPEEDS,
         modes=LD5C_RUN_MODE_GET_MAP,
         mode_writes=LD5C_RUN_MODE_SET_MAP,
-        models=("FY-25ZDP1C",),
         live_status=True,
         info_format=True,
         read_id=2,
@@ -584,7 +582,6 @@ ERV_PROTOCOLS = {
         "SmallERV",
         build_smallerv_payload,
         SMALLERV02_AIR_VOLUME_MAP,
-        models=("FY-25ZM1C",),
         live_status=True,
         sensor_keys=(
             "oaPMC",

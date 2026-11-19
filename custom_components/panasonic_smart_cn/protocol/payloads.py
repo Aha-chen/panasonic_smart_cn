@@ -24,15 +24,16 @@ def hardware_validation_pending(profile: str | None, model: str | None) -> bool:
 def profile_from_sub_type(subtype: str | None, model: str | None = None) -> str | None:
     """Resolve known protocol families and evidenced model aliases."""
     subtype = str(subtype or "").strip().upper()
-    if subtype in ERV_PROTOCOLS:
-        return subtype
-    if subtype in SUBTYPE_ALIASES:
-        return SUBTYPE_ALIASES[subtype]
-    if not subtype or subtype in MODEL_PROFILES:
-        return MODEL_PROFILES.get(subtype) or MODEL_PROFILES.get(
-            str(model or "").strip().upper()
-        )
-    return None
+    model = str(model or "").strip().upper()
+    subtype_profile = SUBTYPE_ALIASES.get(subtype, subtype)
+    if model:
+        expected = MODEL_PROFILES.get(model)
+        if expected and subtype_profile in ("", model, expected):
+            return expected
+        return None
+    if subtype_profile in ERV_PROTOCOLS:
+        return subtype_profile
+    return MODEL_PROFILES.get(subtype)
 
 
 def match_profile(device_id: str, subtype: str | None, model: str | None) -> str | None:
