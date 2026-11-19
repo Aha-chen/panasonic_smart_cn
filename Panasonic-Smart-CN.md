@@ -2,6 +2,8 @@
 
 `custom_components/panasonic_smart_cn` 是独立的 Home Assistant 自定义集成，使用自己的配置条目、设备和实体。每个松下账号共用一个会话和一个数据协调器。集成在 HA Core 中运行，经松下云读取账号下已绑定设备的状态并控制支持的设备。
 
+可按销售型号查询[设备适配进度与实机状态](docs/设备适配进度.md)。
+
 ## 使用
 
 将 `custom_components/panasonic_smart_cn` 目录放到 Home Assistant 的 `/config/custom_components/` 下并重启 Core。在「设置 → 设备与服务 → 添加集成」搜索 **Panasonic Smart CN**，输入中国区「松下智能家电」账号，选择要添加的设备。之后可通过集成的「重新配置」更新设备列表。松下会话失效时，Home Assistant 会提示重新认证。自动重新登录默认关闭，因为松下的会话策略可能影响手机 App。

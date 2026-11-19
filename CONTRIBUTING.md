@@ -8,7 +8,7 @@ Panasonic Smart CN 是 HA Core 自定义集成。开发和测试围绕账号配�
 2. 核对状态与控制端点、请求封装、认证头、每个读写字段及其允许值、哨兵值和单位。优先使用可复核的 APK 资源、松下公开控制脚本或脱敏实机样本。显示名称和协议值分别记录。
 3. 在 `protocol/` 增加或扩展对应协议，在 `api/` 复用账号会话和请求处理。实体优先复用 HA 的 `fan`、`light`、`select`、`switch`、`sensor` 等平台。使用 `DeviceInfo` 注册设备，保持已存在的 `unique_id` 稳定。实体属性只读取协调器缓存，网络请求放在异步更新或服务调用中。参考 [Config Entries](https://contributors.home-assistant.io/core/integrations/config-entries/) 和 [数据获取](https://contributors.home-assistant.io/core/integrations/fetching-data/)。
 4. 录入设备匹配、初始状态、动作请求、错误与非法值的测试。测试应覆盖相邻型号的误匹配、缺失字段、断线或失败时的适当状态。重新认证归到当前账号的配置条目。
-5. 更新 [支持型号表](Panasonic-Smart-CN.md) 与诊断标注。有 APK 或静态协议证据且通过模拟测试时标记「未实机验证」。实机只读核验时记录型号、固件和实际读到的能力。确认某个控制后，记录请求、设备回读与 App 显示，并单独标记对应功能的实机结果。
+5. 更新 [逐型号适配清单](docs/设备适配进度.md)、[协议说明](Panasonic-Smart-CN.md) 与诊断标注。有 APK 或静态协议证据且通过模拟测试时标记「未实机验证」。实机只读核验时记录型号、固件和实际读到的能力。确认某个控制后，记录请求、设备回读与 App 显示，并单独标记对应功能的实机结果。
 
 ## 协议定义与控制回读
 
