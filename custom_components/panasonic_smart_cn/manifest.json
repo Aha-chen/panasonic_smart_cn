@@ -1,0 +1,14 @@
+{
+  "domain": "panasonic_smart_cn",
+  "name": "Panasonic Smart CN",
+  "codeowners": [
+    "@Aha-chen"
+  ],
+  "config_flow": true,
+  "documentation": "https://github.com/Aha-chen/panasonic_smart_cn",
+  "integration_type": "hub",
+  "iot_class": "cloud_polling",
+  "issue_tracker": "https://github.com/Aha-chen/panasonic_smart_cn/issues",
+  "requirements": [],
+  "version": "0.1"
+}

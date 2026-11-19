@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "登录松下智能家电",
+        "description": "请输入松下智能家电 App 中国区账号密码。",
+        "data": {
+          "username": "账号",
+          "password": "密码"
+        }
+      },
+      "device": {
+        "title": "选择设备",
+        "description": "选择要添加到 Home Assistant 的已绑定设备。仅状态设备暂未匹配控制协议。",
+        "data": {
+          "devices": "设备"
+        }
+      },
+      "reauth_confirm": {
+        "title": "重新登录松下智能家电",
+        "description": "松下会话已失效。请输入当前绑定账号的密码。",
+        "data": {
+          "password": "密码"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "无法连接松下服务，请检查网络连接",
+      "invalid_auth": "松下账号或密码无效",
+      "choose_device": "请选择至少一台设备"
+    },
+    "abort": {
+      "no_devices_found": "松下账号下没有已绑定设备",
+      "already_configured": "该松下账号已添加",
+      "wrong_account": "重新登录时需使用原来的松下账号",
+      "reauth_successful": "已重新连接松下账号",
+      "reauth_required": "请先通过 Home Assistant 的重新认证流程恢复松下会话",
+      "cannot_connect": "无法读取松下账号的设备列表",
+      "reconfigure_successful": "已更新设备列表"
+    }
+  },
+  "entity": {
+    "select": {
+      "operating_mode": {
+        "name": "运行模式"
+      }
+    },
+    "sensor": {
+      "reported_field_count": {
+        "name": "已上报字段数"
+      },
+      "device_protocol": {
+        "name": "设备协议"
+      }
+    }
+  },
+  "exceptions": {
+    "air_volume_locked": {
+      "message": "消毒模式固定使用强风量。切换运行模式后可以调整风量。"
+    },
+    "control_not_confirmed": {
+      "message": "松下云已接收指令，但在等待时间内未读到与指令一致的状态。"
+    },
+    "control_failed": {
+      "message": "松下设备控制失败，请检查设备状态和账号连接。"
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "松下账号选项",
+        "data": {
+          "auto_relogin": "会话失效时自动重新登录（可能影响手机 App 会话）",
+          "update_interval": "轮询间隔（秒）"
+        }
+      }
+    }
+  }
+}

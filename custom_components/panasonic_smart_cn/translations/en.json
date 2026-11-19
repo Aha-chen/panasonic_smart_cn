@@ -1,0 +1,79 @@
+{
+  "config": {
+    "step": {
+      "user": {
+        "title": "Sign in to Panasonic Smart CN",
+        "description": "Enter the credentials for your mainland China Panasonic Smart Home app account.",
+        "data": {
+          "username": "Account",
+          "password": "Password"
+        }
+      },
+      "device": {
+        "title": "Select devices",
+        "description": "Select the devices already linked to your account. Devices marked status only do not yet support controls.",
+        "data": {
+          "devices": "Devices"
+        }
+      },
+      "reauth_confirm": {
+        "title": "Sign in to Panasonic Smart CN again",
+        "description": "Your Panasonic session has expired. Enter the password for the linked account.",
+        "data": {
+          "password": "Password"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Could not connect to Panasonic. Check your network connection.",
+      "invalid_auth": "The Panasonic account or password is invalid.",
+      "choose_device": "Select at least one device."
+    },
+    "abort": {
+      "no_devices_found": "There are no devices linked to this account.",
+      "already_configured": "This Panasonic account is already configured.",
+      "wrong_account": "Sign in with the same Panasonic account as before.",
+      "reauth_successful": "The Panasonic account was reconnected.",
+      "reauth_required": "Reauthenticate the Panasonic account in Home Assistant first.",
+      "cannot_connect": "Could not retrieve the devices from the Panasonic account.",
+      "reconfigure_successful": "The device selection was updated."
+    }
+  },
+  "entity": {
+    "select": {
+      "operating_mode": {
+        "name": "Operating mode"
+      }
+    },
+    "sensor": {
+      "reported_field_count": {
+        "name": "Reported field count"
+      },
+      "device_protocol": {
+        "name": "Device protocol"
+      }
+    }
+  },
+  "exceptions": {
+    "air_volume_locked": {
+      "message": "Disinfection mode uses a fixed high speed. Change the operating mode to adjust the speed."
+    },
+    "control_not_confirmed": {
+      "message": "Panasonic received the command, but the reported state did not match it in time."
+    },
+    "control_failed": {
+      "message": "Could not control the Panasonic device. Check the device status and account connection."
+    }
+  },
+  "options": {
+    "step": {
+      "init": {
+        "title": "Panasonic account options",
+        "data": {
+          "auto_relogin": "Automatically reconnect after session expiry (may affect the mobile app session)",
+          "update_interval": "Polling interval (seconds)"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,27 @@
+name: 设备问题或型号适配
+description: 报告控制、读数或设备识别问题，也可申请新增型号
+body:
+  - type: input
+    id: model
+    attributes:
+      label: 销售型号和设备协议
+      description: 填写铭牌上的型号，以及 HA 设备页中「设备协议」的值。尚未添加设备时可只填型号。
+      placeholder: FV-35ZDP2C，LD6C
+    validations:
+      required: true
+  - type: input
+    id: versions
+    attributes:
+      label: 集成版本与 Home Assistant Core 版本
+  - type: textarea
+    id: behavior
+    attributes:
+      label: 你希望设备做什么？实际发生了什么？
+      description: 请写明 App 里对应的功能、HA 中的操作步骤，以及操作后设备或 App 显示的状态。
+    validations:
+      required: true
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: 可选的诊断摘要或截图
+      description: 可以附集成菜单下载的诊断。请遮盖账号、设备标识、家庭信息和地址，勿上传凭证或原始报文。
